@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Plotting Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Interactive Plotting Calculator</h1>
+        
+        <div class="tabs">
+            <button class="tab active" data-tab="plot">Plotting</button>
+            <button class="tab" data-tab="calculator">Calculator</button>
+        </div>
+        
+        <div id="plot-tab" class="tab-content active">
+            <div class="input-group">
+                <label for="expression">Enter a function f(x):</label>
+                <input type="text" id="expression" placeholder="e.g. x^2, sin(x), 2*x+3" value="x^2">
+                <div id="expression-error" class="error"></div>
+            </div>
+
+            <div class="input-group">
+                <label>Range:</label>
+                <div class="range-group">
+                    <div>
+                        <label for="xMin">X Min:</label>
+                        <input type="number" id="xMin" value="-10" step="any">
+                    </div>
+                    <div>
+                        <label for="xMax">X Max:</label>
+                        <input type="number" id="xMax" value="10" step="any">
+                    </div>
+                </div>
+            </div>
+
+            <button id="add-function">Add Function</button>
+
+            <div id="function-list" class="function-list"></div>
+
+            <div class="chart-container">
+                <canvas id="plot"></canvas>
+            </div>
+        </div>
+        
+        <div id="calculator-tab" class="tab-content">
+            <div class="input-group">
+                <label for="calc-expression">Enter a mathematical expression:</label>
+                <input type="text" id="calc-expression" placeholder="e.g. 2+2, sin(30 deg), sqrt(16)">
+            </div>
+            <button id="calculate">Calculate</button>
+            <div class="input-group">
+                <label for="result">Result:</label>
+                <input type="text" id="result" readonly>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
